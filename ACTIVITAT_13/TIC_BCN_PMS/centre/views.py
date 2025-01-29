@@ -8,5 +8,6 @@ def show_students(request):
                   'students.html')
 
 def show_teachers(request):
+    image = {"username": "getaudio2", "ranking": 5}
     return render(request,
-                  'teachers.html')
+                  'teachers.html',{'username': image["username"]})
