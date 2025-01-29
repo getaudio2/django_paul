@@ -68,14 +68,14 @@ teachers = [
 
 def show_students(request):
     return render(request,
-                  'students.html', {'students': students})
+                  'students_table.html', {'students': students})
 
 def student(request, pk):
     student_obj = None
     for i in students:
         if i['id'] == pk:
             student_obj = i
-    return render(request, 'students.html', {'students': student_obj})
+    return render(request, 'student_table.html', {'students': student_obj})
 
 def show_teachers(request):
     return render(request,
