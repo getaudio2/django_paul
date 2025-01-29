@@ -75,7 +75,7 @@ def student(request, pk):
     for i in students:
         if i['id'] == pk:
             student_obj = i
-    return render(request, 'student_table.html', {'students': student_obj})
+    return render(request, 'student_table.html', {'student': student_obj})
 
 def show_teachers(request):
     return render(request,
