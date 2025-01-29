@@ -20,16 +20,17 @@
             <th>TUTOR</th>
             <th>MÒDULS IMPARTITS</th>
         </tr>
+        {% for teacher in teachers %}
         <tr>
-            <td>Roger</td>
-            <td>Sobrino</td>
-            <td>Congom2</td>
-            <td>roger@gmail.com</td>
-            <td>DAW2A</td>
-            <td>Sí</td>
-            <td>M7</td>
+            <td>{{ teacher.nom }}</td>
+            <td>{{ teacher.cognom1 }}</td>
+            <td>{{ teacher.cognom2 }}</td>
+            <td>{{ teacher.correu }}</td>
+            <td>{{ teacher.curs }}</td>
+            <td>{{ teacher.tutor }}</td>
+            <td>{{ teacher.moduls }}</td>
         </tr>
+        {% endfor %}
     </table>
-{{username}}
 </body>
 </html>

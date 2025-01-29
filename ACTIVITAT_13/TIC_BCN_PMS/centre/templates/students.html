@@ -8,6 +8,7 @@
     <title>Students view</title>
 </head>
 <body>
+    {% include "head/header.html" %}
     <h1>INFORMACIÓ ESTUDIANTS TIC BARCELONA</h1>
     <table>
         <tr>
@@ -18,14 +19,16 @@
             <th>CURS</th>
             <th>MÒDULS MATRICULATS</th>
         </tr>
+        {% for student in students %}
         <tr>
-            <td>Paúl</td>
-            <td>Maigua</td>
-            <td>Sarango</td>
-            <td>paul@gmail.com</td>
-            <td>DAW2A</td>
-            <td>M6, M7, M8, PROJECTE</td>
+            <td>{{ student.nom }}</td>
+            <td>{{ student.cognom1 }}</td>
+            <td>{{ student.cognom2 }}</td>
+            <td>{{ student.correu }}</td>
+            <td>{{ student.curs }}</td>
+            <td>{{ student.moduls }}</td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
