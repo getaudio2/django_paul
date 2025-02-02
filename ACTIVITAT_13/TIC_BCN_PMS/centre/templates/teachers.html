@@ -20,17 +20,9 @@
             <th>TUTOR</th>
             <th>MÒDULS IMPARTITS</th>
         </tr>
-        {% for teacher in teachers %}
-        <tr>
-            <td>{{ teacher.nom }}</td>
-            <td>{{ teacher.cognom1 }}</td>
-            <td>{{ teacher.cognom2 }}</td>
-            <td>{{ teacher.correu }}</td>
-            <td>{{ teacher.curs }}</td>
-            <td>{{ teacher.tutor }}</td>
-            <td>{{ teacher.moduls }}</td>
-        </tr>
-        {% endfor %}
+        {% block content %}
+
+        {% endblock %}
     </table>
 </body>
 </html>

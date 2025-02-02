@@ -79,4 +79,11 @@ def student(request, pk):
 
 def show_teachers(request):
     return render(request,
-                  'teachers.html',{'teachers': teachers})
+                  'teachers_table.html',{'teachers': teachers})
+
+def teacher(request, pk):
+    teacher_obj = None
+    for i in teachers:
+        if i['id'] == pk:
+            teacher_obj = i
+    return render(request, 'teacher_table.html', {'teacher': teacher_obj})

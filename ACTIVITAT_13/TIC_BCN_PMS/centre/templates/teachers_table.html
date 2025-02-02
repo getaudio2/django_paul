@@ -1,0 +1,14 @@
+{% extends 'teachers.html' %}
+{% block content %}
+{% for teacher in teachers %}
+<tr>
+    <td><a href="{% url 'teacher' teacher.id %}">{{ teacher.nom }}</a></td>
+    <td>{{ teacher.cognom1 }}</td>
+    <td>{{ teacher.cognom2 }}</td>
+    <td>{{ teacher.correu }}</td>
+    <td>{{ teacher.curs }}</td>
+    <td>{{ teacher.tutor }}</td>
+    <td>{{ teacher.moduls }}</td>
+</tr>
+{% endfor %}
+{% endblock %}
