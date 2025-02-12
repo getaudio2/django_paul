@@ -5,7 +5,7 @@ from .forms import UserForm
 def login(request):
     form = UserForm()
     context = {'form': form}
-    return render(request, 'login.html', context)
+    return render(request, 'form.html', context)
 
 def main_page(request):
     return render(request, 'main_page.html')
