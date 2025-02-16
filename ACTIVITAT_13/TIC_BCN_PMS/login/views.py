@@ -6,12 +6,6 @@ from .models import User
 
 # Create your views here.
 def login(request):
-    # Aquest "del" és només per diferenciar el login sense sessions del login amb sessions
-    # IMPORTANT: Molt de compte a l'hora de comprovar el login amb sessions
-    # quan ha de retornar al main page ja que es pot redireccionar a
-    # aquesta funció per error i esborrar l'usuari logejat amb sessions.
-    del request.session["usuari"]
-
     form = UserForm()
 
     if request.method == 'POST':
@@ -41,7 +35,6 @@ def loginSession(request):
     # Evitem que l'usari logejat amb sessions
     # pugui accedir al login
     usuari = request.session.get('usuari', 'Invitado')
-    print(usuari)
     if usuari is not "Invitado":
         return render(request, 'main_page.html')
 
@@ -66,9 +59,13 @@ def loginSession(request):
 
 def main_page(request):
     usuari = request.session.get('usuari', 'Invitado')
-    print(usuari)
+
     if usuari is not "Invitado":
-        return render(request, 'main_page.html')
+        try:
+            usuari_obj = User.objects.get(id=usuari)
+            return render(request, 'main_page.html', {"usuari": usuari_obj})
+        except User.DoesNotExist:
+            return redirect("loginUsuariSession")
 
     if request.session.get("acces_temporal"):
         # Esborrem l'accés temporal per a que l'usuari sense sessions
@@ -79,4 +76,12 @@ def main_page(request):
         return render(request, "main_page.html")
 
     # Finalment, redireccionem al login
+    # Nota: només es redirigeix al login sense sessions
+    # quan s'intenta accedir al main_page sense sessió
     return redirect("loginUsuari")
+
+def logout(request):
+    if "usuari" in request.session:
+        del request.session['usuari']
+
+    return redirect("loginUsuariSession")

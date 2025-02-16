@@ -8,6 +8,14 @@
     <title>Main page</title>
 </head>
 <body>
-    MAIN PAGE
+    <h1>Benvingut a la Main Page</h1>
+
+    {% if usuari %}
+        <h2>Hola, {{ usuari.nom }}!</h2>
+    {% else %}
+        <h2>Hola, Invitado!</h2>
+    {% endif %}
+
+    <a href="{% url 'logout' %}">Logout</a>
 </body>
 </html>
