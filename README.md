@@ -1,5 +1,15 @@
 # django_paul
 
+## ACTIVITAT 14
+### Configuració projecte
+![cap4](Captures/captura4.png)
+### Creació de la nova aplicació
+![cap5](Captures/captura5.png)
+### Crear model de l'aplicació
+![cap6](Captures/captura6.png)
+![cap7](Captures/captura7.png)
+![cap8](Captures/captura8.png)
+
 ## Video fent les proves
 - Es comprova que no es pot accedir al main page sense haver fet login
 - Credencials errònies donen un missatge d'error
