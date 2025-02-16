@@ -36,7 +36,8 @@ def loginSession(request):
     # pugui accedir al login
     usuari = request.session.get('usuari', 'Invitado')
     if usuari is not "Invitado":
-        return render(request, 'main_page.html')
+        usuari_obj = User.objects.get(id=usuari)
+        return render(request, 'main_page.html', {"usuari": usuari_obj})
 
     form = UserForm()
 
